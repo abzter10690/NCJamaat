@@ -1,24 +1,17 @@
-# README
+# NCJamaat
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website caters to the needs and management of North Carolina Jamaat.
 
-Things you may want to cover:
+Features:
 
-* Ruby version
+* Event registration
 
-* System dependencies
+* Mail notifications
 
-* Configuration
+* ITS login
 
 * Database creation
 
-* Database initialization
+* Attendance tracking
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Admin Dashboard
