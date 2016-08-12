@@ -1,0 +1,110 @@
+<style media="screen">
+
+.table-hover tbody tr:hover td {
+  background-color: #E0F2F1;
+}
+
+#new-user-form {
+  display: none;
+  border : 1px solid green;
+  border-radius: 4px;
+  padding: 10px;
+}
+</style>
+<div class="container-fluid">
+  <h1>Manage Mumineen</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="" method="post" action="#">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon">
+                  <i class="glyphicon glyphicon-search"></i>
+              </span>
+                <input type="text" class="form-control" placeholder="Search user by ITS , Name or Email" name="search_keyword"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">Search</button>
+                </span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <button type="button" class="btn btn-success" id="user-create-btn">Create New User &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+
+<div class="container-fluid" id="new-user-form" style="margin-bottom: 20px;">
+  <form class="form-inline" method="post" action="/admin/create_user">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="ITS Number" name="its_id" maxlength="8"/>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" name="first_name"/>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" name="last_name"  style="width: 250px;"/>
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" name="email" style="width: 250px;"/>
+    </div>
+    <p>  </p>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Password" name="password"/>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Confirm Password" name="confirm_password"/>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="form-control btn btn-primary">Submit</button>
+        <button type="button" class="form-control btn btn-danger" id="form-cancel-btn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<table class="table table-hover">
+  <tr>
+    <th>ITS</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Privileges</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.its_id %></td>
+    <td><%= user.first_name + " " + user.last_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.user_type %></td>
+    <td>
+      <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<script type="text/javascript">
+  $('document').ready(function (){
+    $('#user-create-btn').click(function(){
+      $('#new-user-form').css('display' , 'block');
+    });
+
+    $('#form-cancel-btn').click(function(){
+      $('#new-user-form').css('display' , 'none');
+    });
+  });
+</script>

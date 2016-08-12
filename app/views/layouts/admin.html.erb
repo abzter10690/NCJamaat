@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style media="screen">
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /*background: url('molabg2.jpg');*/
+        background-color: #F1F8E9 ;
+        background-size: 100% ;
+        /*background: linear-gradient(#FF7043 ,#FFCCBC);*/
+      }
+      a {
+        text-decoration: none;
+      }
+      @font-face {
+        font-family: rodja;
+        src: url(Rodja.ttf);
+      }
+
+      #sidebar-wrapper {
+        /*z-index: -1;*/
+        background: #263238 ;
+        width: 250px;
+        position: fixed;
+        top: 0px ;
+        left: 0px ;
+        right: 0 ;
+        bottom: 0px ;
+        /*padding: 30px ;*/
+        color: #ffffff ;
+      }
+      #sidebar-wrapper ul{
+        list-style: none;
+        /*font-family: msf;*/
+      }
+
+      #sidebar-wrapper ul li{
+        padding: 5px;
+        font-size: 16px ;
+        margin-bottom: 16px ;
+        padding-left: 15px;
+        /*color: #000 ;*/
+        /*transition: 0.5s;*/
+      }
+      #sidebar-wrapper ul li:hover {
+        background-color: #F1F8E9 ;
+        color : white ;
+        padding-left: 25px;
+      }
+
+      #sidebar-wrapper ul a{
+        text-decoration: none;
+        /*color: #000 ;*/
+        /*font-family: msf;*/
+        font-size: 16px;
+        transition: .1s;
+      }
+
+      #page-content-wrapper {
+        /*background: #CFD8DC ;*/
+        position: relative;
+        margin-left: 250px ;
+      }
+      #user-image {
+        padding: 1px;
+        margin: 35px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="" id="sidebar-wrapper">
+        <a href="#" class="thumbnail" id="user-image">
+          <img src="/abbas-avatar.jpeg" alt="abbas_image_headshot">
+        </a>
+        <ul>
+          <li><a href="/admin/manage_users">Manage Mumineen</a></li>
+          <li><a href="/admin/manage_miqaats">Manage Miqaats</a></li>
+          <li><a href="/admin/manage_attendance">Manage Attendance</a></li>
+          <li><a href="#projects">Upload Files</a></li>
+          <li><a href="#blogs">Send Emails</a></li>
+        </ul>
+    </div>
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+</html>

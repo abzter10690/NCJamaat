@@ -6,9 +6,39 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style media="screen">
+      html{
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /*background: url('molabg2.jpg');*/
+        background-color: #F1F8E9 ;
+        background-size: 100% ;
+        /*background: linear-gradient(#FF7043 ,#FFCCBC);*/
+      }
+      @font-face {
+        font-family: rodja;
+          src: url(Rodja.ttf);
+      }
+      ::-webkit-input-placeholder {
+        color: #000000;
+      }
+    </style>
   </head>
 
   <body>
     <%= yield %>
+    <script type="text/javascript">
+      $('#menu-toggle').click(function(e){
+        e.preventDefault();
+        $('#wrapper').toggleClass("menuDisplayed");
+      });
+
+    </script>
   </body>
 </html>

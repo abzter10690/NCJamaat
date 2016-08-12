@@ -1,0 +1,152 @@
+<!-- <style media="screen">
+  #brand {
+    font-family: rodja ;
+    font-size: 28px ;
+    color: #1B5E20 ;
+  }
+  ::-webkit-input-placeholder {
+    color: #000000;
+  }
+
+  /*sidebar*/
+  #sidebar-wrapper {
+    z-index: 1;
+    position: absolute ;
+    width: 250px;
+    height: 100%;
+    overflow-y: hidden;
+    background: #2c3e50 ;
+    /*border: 2px solid red;*/
+    opacity: 0.9 ;
+
+  }
+  /*Main content*/
+  #page-content-wrapper{
+    width: 100%;
+    position: absolute;
+    padding: 250px;
+    /*border: 5px solid green;*/
+  }
+
+  /*change the width of sidebar to display*/
+  #wrapper.menuDisplayed #sidebar-wrapper{
+    width: 250px;
+  }
+  /*change the padding of sidebar to display*/
+  #wrapper.menuDisplayed #page-content-wrapper{
+    padding-left: 250px;
+  }
+  /*Sidebar Styling*/
+  .sidebar-nav {
+    padding: 0;
+    list-style: none;
+  }
+
+  .sidebar-nav li{
+    text-indent: 20px;
+    line-height: 40px;
+  }
+
+  .sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #ddd ;
+  }
+
+  .sidebar-nav li a:hover {
+    background: #16A085;
+  }
+
+</style>*/ -->
+
+<!-- NAVIGATION BAR -->
+<!-- <nav class="navbar">
+  <div class="container-fluid"> -->
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <!-- <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" id="brand">North&nbsp;Carolina&nbsp;&nbsp;Jamaats</a>
+
+    </div> -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-right" role="search" method="post" action="/access/logout">
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Logout</button>
+        </div>
+      </form> -->
+      <!-- <a href="#" class="btn btn-default navbar-right" id="toggleButton"><span class="glyphicon glyphicon-th-list"></span></a> -->
+    <!-- </div> -->
+    <!-- /.navbar-collapse -->
+  <!-- </div> -->
+  <!-- /.container-fluid -->
+<!-- </nav> -->
+<!-- NAVIGATION BAR -->
+
+<!-- MAIN CONTENT -->
+<!-- <div class="" id="wrapper"> -->
+  <!-- Sidebar -->
+  <!-- <div class="" id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li><a href="#">Manage Users</a></li>
+      <li><a href="#">Manage Miqaats</a></li>
+      <li><a href="#">Manage Attendance</a></li>
+      <li><a href="#">Upload Files</a></li>
+      <li><a href="#">Others</a></li>
+    </ul>
+  </div> -->
+
+  <!-- page content -->
+  <!-- <div class="" id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <button class="btn btn-success" id="menu-toggle">Toggle Menu</button>
+          <h1>Sibebar Menu Testing</h1>
+          <p id="main-para">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+           when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+           It has survived not only five centuries, but also the leap into electronic typesetting,
+           remaining essentially unchanged. It was popularised in the 1960s with the release of
+           Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+           software like Aldus PageMaker including versions of Lorem Ipsum.
+         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+<p>
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+   when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+   It has survived not only five centuries, but also the leap into electronic typesetting,
+   remaining essentially unchanged. It was popularised in the 1960s with the release of
+   Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+   software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
+<!-- MAIN CONTENT -->
+
+<!-- Menu toggle script -->
+<script type="text/javascript">
+  $('#main-para').hover(function(e){
+    e.preventDefault();
+    $(this).css("background-color" , "yellow");
+  } , function(e){
+    $(this).css("background-color" , "pink");
+  });
+
+  $('#menu-toggle').click(function(e){
+    e.preventDefault();
+    $('#wrapper').toggleClass("menuDisplayed");
+  });
+
+</script>
