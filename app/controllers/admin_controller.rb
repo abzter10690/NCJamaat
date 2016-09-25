@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
 
+  before_action :confirm_logged_in      
   skip_before_action :verify_authenticity_token
 
   def manage_users
@@ -17,25 +18,27 @@ class AdminController < ApplicationController
   end
 
   def create_miqaat
+    #if params[:miqaat_date]==nil || params[:miqaat_name]==nil || params[:miqaat_type]==nil
+
     event =  Event.where({event_date: params[:miqaat_date], event_start_time: (params[:start_time] + params[:start_period])})
-    if event
+    if event!=nil
       puts event
       flash[:notice] = "Miqaat with same date and start-time already exists."
-      redirect_to('manage_miqaats')
-      return
-    end
-    event = Event.new
-    event.event_name = params[:miqaat_name]
-    event.event_type = params[:miqaat_type].upcase
-    puts params[:miqaat_date]
-    event.event_date = params[:miqaat_date]
-    event.venue = params[:venue]
-    event.event_start_time = params[:start_time] + params[:start_period]
-    event.event_end_time = params[:end_time] + params[:end_period]
-    event.description = params[:description]
-    event.instructions = params[:instruction]
-    event.save
-    redirect_to('manage_miqaats' ,:notice => "Miqaat successfully created.")
+      redirect_to('manage_miqaats')      
+    else
+      event = Event.new
+      event.event_name = params[:miqaat_name]
+      event.event_type = params[:miqaat_type].upcase
+      puts params[:miqaat_date]
+      event.event_date = params[:miqaat_date]
+      event.venue = params[:venue]
+      event.event_start_time = params[:start_time] + params[:start_period]
+      event.event_end_time = params[:end_time] + params[:end_period]
+      event.description = params[:description]
+      event.instructions = params[:instruction]
+      event.save
+      redirect_to('manage_miqaats' ,:notice => "Miqaat successfully created.")
+  end
   end
 
   def create_user

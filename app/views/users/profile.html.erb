@@ -1,0 +1,14 @@
+
+
+<% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button class="close" data-dismiss="alert">×</button>
+            <%= flash[:notice] %>
+          </div>
+<% end %>
+
+<p> Profile template is currently under progress</p>
+<p> User id : <%= @user_id%></p>
+<p> First Name  :  <%= @user_first_name%></p>
+<p> Last Name : <%= @user_last_name%></p>
+<p> Email :  <%= @user_email%></p>

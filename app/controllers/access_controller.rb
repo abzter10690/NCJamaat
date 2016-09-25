@@ -30,14 +30,18 @@ class AccessController < ApplicationController
     end
     if authorized_user
       session[:userid] = authorized_user.its_id
-      puts session[:userid]
-      flash[:notice] = "You are now logged in."
-      # render(layout: "admin" , template: "admin/manage_users")
-      redirect_to(controller: "admin" ,action: "manage_users")
+      #puts session[:userid]
+      if authorized_user.user_type=='A'
+        #flash[:notice] = "You are now logged in."
+        # render(layout: "admin" , template: "admin/manage_users")
+        redirect_to(controller: "admin" ,action: "manage_users")
+      else
+        redirect_to(controller: "users" , action: "profile", user_id: params[:itsid])
+      end
     else
       flash[:notice] = "Invalid ITS / Password combination"
       # render(layout: "admin", template: "admin/manage_users")
-      redirect_to(controller: "admin" ,action: "manage_users")
+      redirect_to(controller: "access" ,action: "index" )
     end
   end
 
